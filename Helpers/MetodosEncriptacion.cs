@@ -33,8 +33,9 @@ namespace DSJ.Helpers
             }
         }
         #endregion
+        #region GeneracionCifrado
 
-        public   byte[] ExtraerByte(string texto, byte[] Key, byte[] IV)
+        public byte[] ExtraerByte(string texto, byte[] Key, byte[] IV)
         {
             #region Validacion
             // Validando Parametros
@@ -45,7 +46,7 @@ namespace DSJ.Helpers
             if (IV == null || IV.Length <= 0)
                 throw new ArgumentNullException("IV");
             #endregion
-            byte[] encrypted;
+            byte[] cifrado;
 
             // Instanciando algoritmo simetrico de Rijndael
             using (SymmetricAlgorithm r = SymmetricAlgorithm.Create("Rijndael"))
@@ -56,7 +57,7 @@ namespace DSJ.Helpers
                // r.Key = Key;
                // r.IV = IV;
 
-                // Create an encryptor to perform the stream transform.
+                // Almacenar cifrado
                 ICryptoTransform encryptor = r.CreateEncryptor(r.Key, r.IV);
 
                 // Create the streams used for encryption.
@@ -66,17 +67,16 @@ namespace DSJ.Helpers
                     {
                         using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
                         {
-
-                            //Write all data to the stream.
                             swEncrypt.Write(texto);
                         }
-                        encrypted = msEncrypt.ToArray();
+                        cifrado = msEncrypt.ToArray();
                     }
                 }
             }
 
-            // Return the encrypted bytes from the memory stream.
-            return encrypted;
+            // Retornar el cifrado
+            return cifrado;
         }
     }
+    #endregion
 }
