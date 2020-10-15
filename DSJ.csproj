@@ -131,7 +131,6 @@
     <Compile Include="Areas\AG\AGAreaRegistration.cs" />
     <Compile Include="Areas\CL\CLAreaRegistration.cs" />
     <Compile Include="Areas\CL\Controllers\RegistroController.cs" />
-    <Compile Include="Areas\CL\Controllers\TonerController.cs" />
     <Compile Include="Areas\CO\COAreaRegistration.cs" />
     <Compile Include="Areas\LOG\Controllers\AccountController.cs" />
     <Compile Include="Areas\LOG\LOGAreaRegistration.cs" />
@@ -1996,10 +1995,11 @@
     <Content Include="Areas\CL\Views\_ViewStart.cshtml" />
     <Content Include="Areas\CL\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\CL\Views\PerfilToner\Perfil.cshtml" />
-    <Content Include="Areas\CL\Views\Registro\Create.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Toner.cshtml" />
     <Content Include="Areas\CL\Views\Registro\Delete.cshtml" />
     <Content Include="Areas\CL\Views\Registro\Details.cshtml" />
     <Content Include="Areas\CL\Views\Registro\Edit.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Create.cshtml" />
     <Content Include="Areas\CL\Views\Registro\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

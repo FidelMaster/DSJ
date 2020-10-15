@@ -32,7 +32,7 @@ namespace DSJ.Models
         public byte[] FechaCreacion { get; set; }
         public Nullable<System.DateTime> FechaActualizacion { get; set; }
         public Nullable<int> IdCuenta { get; set; }
-    
+        public string  Direccion { get; set; }
         public virtual TblClasificacion TblClasificacion { get; set; }
         public virtual TblCuenta TblCuenta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
