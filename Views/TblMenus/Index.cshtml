@@ -57,7 +57,7 @@
                             {
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        @Html.ActionLink(sub.Nombre, sub.Accion, sub.Controlador, new { @class = "nav-link" })
+                                        @Html.ActionLink(sub.Nombre, sub.Accion, sub.Controlador,new  { Area = sub.Area} ,new { @class = "nav-link" })
                                         <i class="far fa-circle nav-icon"></i>
                                     </li>
                                 </ul>
