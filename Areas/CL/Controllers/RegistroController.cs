@@ -28,16 +28,10 @@ namespace DSJ.Areas.CL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Toner(string correo, string clave, string nombre, string celular, string telefono)
         {
-            if (ModelState.IsValid)
-            {
-                db.TblEmpresas.Add(tblEmpresa);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+           
 
-            ViewBag.IdClasificacion = new SelectList(db.TblClasificacions, "Id", "Descripcion", tblEmpresa.IdClasificacion);
-            ViewBag.IdCuenta = new SelectList(db.TblCuentas, "Id", "Correo", tblEmpresa.IdCuenta);
-            return View(tblEmpresa);
+        
+            return View();
         }
 
        
