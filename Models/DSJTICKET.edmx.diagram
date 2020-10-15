@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d0c1c15efb464b38bd6b482838e67117" Name="Diagram1">
+        <EntityTypeShape EntityType="DSJTICKETModel.TblClasificacion" Width="1.5" PointX="3.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblCuentaSucursale" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblEmpresa" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblSucursale" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.sysdiagram" Width="1.5" PointX="8.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblAgente" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblCoordinadore" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblPersona" Width="1.5" PointX="3.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.Invenario" Width="1.5" PointX="8.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblCuenta" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblMenu" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblModulo" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblPermiso" Width="1.5" PointX="10.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblRol" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblRolMenu" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblRolPermisoMenu" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblEstado" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblPrioridad" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblTicketDocumento" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSJTICKETModel.TblTicket" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblEmpres__IdCla__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblCuenta__IdCue__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK_TblCuentaSucursale_TblSucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblEmpres__IdCue__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblSucurs__IdEmp__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblAgente__Coord__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblAgente__IdMod__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblCoordi__IdMod__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblCoordi__IdPer__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblPerson__IdCue__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblCuenta__IdRol__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdAge__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdCue__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblMenu__IdModul__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblRolMen__IdMen__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK_TblMenu_TblMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdMod__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblRolMen__IdRol__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdEst__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdPri__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DSJTICKETModel.FK__TblTicket__IdTic__70DDC3D8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

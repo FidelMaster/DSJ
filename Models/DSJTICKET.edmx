@@ -1,0 +1,1534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DSJTICKETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblClasificacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="TiempoInicio" Type="varchar" MaxLength="200" />
+          <Property Name="TiempoFin" Type="varchar" MaxLength="200" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblCuentaSucursale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="Cargo" Type="varchar" MaxLength="100" />
+          <Property Name="Area" Type="varchar" MaxLength="200" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="50" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Logo" Type="image" />
+          <Property Name="Ruc" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Celular" Type="int" />
+          <Property Name="IdClasificacion" Type="int" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="ActualizadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaActualizacion" Type="datetime" />
+          <Property Name="IdCuenta" Type="int" />
+        </EntityType>
+        <EntityType Name="TblSucursales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Long" Type="float" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="50" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblAgentes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="CoordId" Type="int" />
+          <Property Name="IdModulo" Type="int" />
+          <Property Name="Profesion" Type="varchar" MaxLength="100" />
+          <Property Name="Cargo" Type="varchar" MaxLength="100" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblCoordinadores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="Profesion" Type="varchar" MaxLength="100" />
+          <Property Name="Cargo" Type="varchar" MaxLength="100" />
+          <Property Name="IdModulo" Type="int" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblPersona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido" Type="varbinary(max)" />
+          <Property Name="Cedula" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Celular" Type="int" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaActualizacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Invenario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Modelo" Type="varchar" MaxLength="100" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="ActualizadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblCuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+          <Property Name="Clave" Type="varbinary(max)" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaActualizacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Menu_padre_id" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+          <Property Name="Icono" Type="varchar" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Accion" Type="varchar" MaxLength="100" />
+          <Property Name="Controlador" Type="varchar" MaxLength="100" />
+          <Property Name="IdModulo" Type="int" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreado" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblModulos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modulo" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblPermisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Permiso" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRolMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="IdMenu" Type="int" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblRolPermisoMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMenu" Type="int" />
+          <Property Name="IdRol" Type="varchar" MaxLength="100" />
+          <Property Name="IdPermiso" Type="varchar" MaxLength="100" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreado" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Color" Type="varchar" MaxLength="100" />
+          <Property Name="Porcentaje" Type="int" />
+        </EntityType>
+        <EntityType Name="TblPrioridad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="FechaCreacion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblTicketDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTicket" Type="int" />
+          <Property Name="documento" Type="varchar" MaxLength="100" />
+          <Property Name="FechaRegistro" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblTickets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="600" />
+          <Property Name="FechaApertura" Type="date" />
+          <Property Name="HoraApertura" Type="time" Precision="7" />
+          <Property Name="FechaRevision" Type="datetime" />
+          <Property Name="FechaProceso" Type="datetime" />
+          <Property Name="FechaCierre" Type="datetime" />
+          <Property Name="IdAgente" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdModulo" Type="int" />
+          <Property Name="IdPrioridad" Type="int" />
+          <Property Name="EsEmpleado" Type="bit" />
+          <Property Name="FechaRegistro" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__TblAgente__Coord__59FA5E80">
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadores" Multiplicity="0..1" />
+          <End Role="TblAgentes" Type="Self.TblAgentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCoordinadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblAgentes">
+              <PropertyRef Name="CoordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblAgente__IdMod__59063A47">
+          <End Role="TblModulos" Type="Self.TblModulos" Multiplicity="0..1" />
+          <End Role="TblAgentes" Type="Self.TblAgentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblAgentes">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCoordi__IdMod__5629CD9C">
+          <End Role="TblModulos" Type="Self.TblModulos" Multiplicity="0..1" />
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCoordinadores">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCoordi__IdPer__5535A963">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCoordinadores">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCuenta__IdCue__4F7CD00D">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblCuentaSucursale" Type="Self.TblCuentaSucursale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuentaSucursale">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCuenta__IdRol__44FF419A">
+          <End Role="TblRol" Type="Self.TblRol" Multiplicity="0..1" />
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuenta">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblEmpres__IdCla__49C3F6B7">
+          <End Role="TblClasificacion" Type="Self.TblClasificacion" Multiplicity="0..1" />
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClasificacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblEmpresa">
+              <PropertyRef Name="IdClasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblEmpres__IdCue__10566F31">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblEmpresa">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblMenu__IdModul__3C69FB99">
+          <End Role="TblModulos" Type="Self.TblModulos" Multiplicity="0..1" />
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMenu">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblPerson__IdCue__52593CB8">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblRolMen__IdMen__4222D4EF">
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="0..1" />
+          <End Role="TblRolMenu" Type="Self.TblRolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblRolMenu">
+              <PropertyRef Name="IdMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblRolMen__IdRol__412EB0B6">
+          <End Role="TblRol" Type="Self.TblRol" Multiplicity="0..1" />
+          <End Role="TblRolMenu" Type="Self.TblRolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblRolMenu">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblSucurs__IdEmp__4CA06362">
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="0..1" />
+          <End Role="TblSucursales" Type="Self.TblSucursales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblSucursales">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdAge__693CA210">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdAgente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdCue__6A30C649">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdEst__6D0D32F4">
+          <End Role="TblEstado" Type="Self.TblEstado" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdMod__6B24EA82">
+          <End Role="TblModulos" Type="Self.TblModulos" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdPri__6C190EBB">
+          <End Role="TblPrioridad" Type="Self.TblPrioridad" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPrioridad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdPrioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdTic__70DDC3D8">
+          <End Role="TblTickets" Type="Self.TblTickets" Multiplicity="0..1" />
+          <End Role="TblTicketDocumento" Type="Self.TblTicketDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTickets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTicketDocumento">
+              <PropertyRef Name="IdTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCuentaSucursale_TblSucursales">
+          <End Role="TblSucursales" Type="Self.TblSucursales" Multiplicity="0..1" />
+          <End Role="TblCuentaSucursale" Type="Self.TblCuentaSucursale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuentaSucursale">
+              <PropertyRef Name="IdSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMenu_TblMenu">
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="0..1" />
+          <End Role="TblMenu1" Type="Self.TblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMenu1">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DSJTICKETModelStoreContainer">
+          <EntitySet Name="TblClasificacion" EntityType="Self.TblClasificacion" Schema="CL" store:Type="Tables" />
+          <EntitySet Name="TblCuentaSucursale" EntityType="Self.TblCuentaSucursale" Schema="CL" store:Type="Tables" />
+          <EntitySet Name="TblEmpresa" EntityType="Self.TblEmpresa" Schema="CL" store:Type="Tables" />
+          <EntitySet Name="TblSucursales" EntityType="Self.TblSucursales" Schema="CL" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAgentes" EntityType="Self.TblAgentes" Schema="EMP" store:Type="Tables" />
+          <EntitySet Name="TblCoordinadores" EntityType="Self.TblCoordinadores" Schema="EMP" store:Type="Tables" />
+          <EntitySet Name="TblPersona" EntityType="Self.TblPersona" Schema="GEN" store:Type="Tables" />
+          <EntitySet Name="Invenario" EntityType="Self.Invenario" Schema="INV" store:Type="Tables" />
+          <EntitySet Name="TblCuenta" EntityType="Self.TblCuenta" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblMenu" EntityType="Self.TblMenu" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblModulos" EntityType="Self.TblModulos" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblPermisos" EntityType="Self.TblPermisos" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblRol" EntityType="Self.TblRol" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblRolMenu" EntityType="Self.TblRolMenu" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblRolPermisoMenu" EntityType="Self.TblRolPermisoMenu" Schema="seguridad" store:Type="Tables" />
+          <EntitySet Name="TblEstado" EntityType="Self.TblEstado" Schema="TICK" store:Type="Tables" />
+          <EntitySet Name="TblPrioridad" EntityType="Self.TblPrioridad" Schema="TICK" store:Type="Tables" />
+          <EntitySet Name="TblTicketDocumento" EntityType="Self.TblTicketDocumento" Schema="TICK" store:Type="Tables" />
+          <EntitySet Name="TblTickets" EntityType="Self.TblTickets" Schema="TICK" store:Type="Tables" />
+          <AssociationSet Name="FK__TblAgente__Coord__59FA5E80" Association="Self.FK__TblAgente__Coord__59FA5E80">
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+            <End Role="TblAgentes" EntitySet="TblAgentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblAgente__IdMod__59063A47" Association="Self.FK__TblAgente__IdMod__59063A47">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblAgentes" EntitySet="TblAgentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCoordi__IdMod__5629CD9C" Association="Self.FK__TblCoordi__IdMod__5629CD9C">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCoordi__IdPer__5535A963" Association="Self.FK__TblCoordi__IdPer__5535A963">
+            <End Role="TblPersona" EntitySet="TblPersona" />
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCuenta__IdCue__4F7CD00D" Association="Self.FK__TblCuenta__IdCue__4F7CD00D">
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+            <End Role="TblCuentaSucursale" EntitySet="TblCuentaSucursale" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCuenta__IdRol__44FF419A" Association="Self.FK__TblCuenta__IdRol__44FF419A">
+            <End Role="TblRol" EntitySet="TblRol" />
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblEmpres__IdCla__49C3F6B7" Association="Self.FK__TblEmpres__IdCla__49C3F6B7">
+            <End Role="TblClasificacion" EntitySet="TblClasificacion" />
+            <End Role="TblEmpresa" EntitySet="TblEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblEmpres__IdCue__10566F31" Association="Self.FK__TblEmpres__IdCue__10566F31">
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+            <End Role="TblEmpresa" EntitySet="TblEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblMenu__IdModul__3C69FB99" Association="Self.FK__TblMenu__IdModul__3C69FB99">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblMenu" EntitySet="TblMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblPerson__IdCue__52593CB8" Association="Self.FK__TblPerson__IdCue__52593CB8">
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+            <End Role="TblPersona" EntitySet="TblPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblRolMen__IdMen__4222D4EF" Association="Self.FK__TblRolMen__IdMen__4222D4EF">
+            <End Role="TblMenu" EntitySet="TblMenu" />
+            <End Role="TblRolMenu" EntitySet="TblRolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblRolMen__IdRol__412EB0B6" Association="Self.FK__TblRolMen__IdRol__412EB0B6">
+            <End Role="TblRol" EntitySet="TblRol" />
+            <End Role="TblRolMenu" EntitySet="TblRolMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblSucurs__IdEmp__4CA06362" Association="Self.FK__TblSucurs__IdEmp__4CA06362">
+            <End Role="TblEmpresa" EntitySet="TblEmpresa" />
+            <End Role="TblSucursales" EntitySet="TblSucursales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdAge__693CA210" Association="Self.FK__TblTicket__IdAge__693CA210">
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdCue__6A30C649" Association="Self.FK__TblTicket__IdCue__6A30C649">
+            <End Role="TblCuenta" EntitySet="TblCuenta" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdEst__6D0D32F4" Association="Self.FK__TblTicket__IdEst__6D0D32F4">
+            <End Role="TblEstado" EntitySet="TblEstado" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdMod__6B24EA82" Association="Self.FK__TblTicket__IdMod__6B24EA82">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdPri__6C190EBB" Association="Self.FK__TblTicket__IdPri__6C190EBB">
+            <End Role="TblPrioridad" EntitySet="TblPrioridad" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdTic__70DDC3D8" Association="Self.FK__TblTicket__IdTic__70DDC3D8">
+            <End Role="TblTickets" EntitySet="TblTickets" />
+            <End Role="TblTicketDocumento" EntitySet="TblTicketDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCuentaSucursale_TblSucursales" Association="Self.FK_TblCuentaSucursale_TblSucursales">
+            <End Role="TblSucursales" EntitySet="TblSucursales" />
+            <End Role="TblCuentaSucursale" EntitySet="TblCuentaSucursale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMenu_TblMenu" Association="Self.FK_TblMenu_TblMenu">
+            <End Role="TblMenu" EntitySet="TblMenu" />
+            <End Role="TblMenu1" EntitySet="TblMenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSJTICKETModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblClasificacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TiempoInicio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TiempoFin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblEmpresas" Relationship="Self.FK__TblEmpres__IdCla__49C3F6B7" FromRole="TblClasificacion" ToRole="TblEmpresa" />
+        </EntityType>
+        <EntityType Name="TblCuentaSucursale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSucursal" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="Cargo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblCuenta" Relationship="Self.FK__TblCuenta__IdCue__4F7CD00D" FromRole="TblCuentaSucursale" ToRole="TblCuenta" />
+          <NavigationProperty Name="TblSucursale" Relationship="Self.FK_TblCuentaSucursale_TblSucursales" FromRole="TblCuentaSucursale" ToRole="TblSucursales" />
+        </EntityType>
+        <EntityType Name="TblEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Ruc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Celular" Type="Int32" />
+          <Property Name="IdClasificacion" Type="Int32" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActualizadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <NavigationProperty Name="TblClasificacion" Relationship="Self.FK__TblEmpres__IdCla__49C3F6B7" FromRole="TblEmpresa" ToRole="TblClasificacion" />
+          <NavigationProperty Name="TblCuenta" Relationship="Self.FK__TblEmpres__IdCue__10566F31" FromRole="TblEmpresa" ToRole="TblCuenta" />
+          <NavigationProperty Name="TblSucursales" Relationship="Self.FK__TblSucurs__IdEmp__4CA06362" FromRole="TblEmpresa" ToRole="TblSucursales" />
+        </EntityType>
+        <EntityType Name="TblSucursale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Long" Type="Double" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="CreadoPor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblCuentaSucursales" Relationship="Self.FK_TblCuentaSucursale_TblSucursales" FromRole="TblSucursales" ToRole="TblCuentaSucursale" />
+          <NavigationProperty Name="TblEmpresa" Relationship="Self.FK__TblSucurs__IdEmp__4CA06362" FromRole="TblSucursales" ToRole="TblEmpresa" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblAgente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="CoordId" Type="Int32" />
+          <Property Name="IdModulo" Type="Int32" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblCoordinadore" Relationship="Self.FK__TblAgente__Coord__59FA5E80" FromRole="TblAgentes" ToRole="TblCoordinadores" />
+          <NavigationProperty Name="TblModulo" Relationship="Self.FK__TblAgente__IdMod__59063A47" FromRole="TblAgentes" ToRole="TblModulos" />
+        </EntityType>
+        <EntityType Name="TblCoordinadore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdModulo" Type="Int32" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblAgentes" Relationship="Self.FK__TblAgente__Coord__59FA5E80" FromRole="TblCoordinadores" ToRole="TblAgentes" />
+          <NavigationProperty Name="TblModulo" Relationship="Self.FK__TblCoordi__IdMod__5629CD9C" FromRole="TblCoordinadores" ToRole="TblModulos" />
+          <NavigationProperty Name="TblPersona" Relationship="Self.FK__TblCoordi__IdPer__5535A963" FromRole="TblCoordinadores" ToRole="TblPersona" />
+        </EntityType>
+        <EntityType Name="TblPersona">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="Int32" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCoordinadores" Relationship="Self.FK__TblCoordi__IdPer__5535A963" FromRole="TblPersona" ToRole="TblCoordinadores" />
+          <NavigationProperty Name="TblCuenta" Relationship="Self.FK__TblPerson__IdCue__52593CB8" FromRole="TblPersona" ToRole="TblCuenta" />
+        </EntityType>
+        <EntityType Name="Invenario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActualizadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblCuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCuentaSucursales" Relationship="Self.FK__TblCuenta__IdCue__4F7CD00D" FromRole="TblCuenta" ToRole="TblCuentaSucursale" />
+          <NavigationProperty Name="TblEmpresas" Relationship="Self.FK__TblEmpres__IdCue__10566F31" FromRole="TblCuenta" ToRole="TblEmpresa" />
+          <NavigationProperty Name="TblPersonas" Relationship="Self.FK__TblPerson__IdCue__52593CB8" FromRole="TblCuenta" ToRole="TblPersona" />
+          <NavigationProperty Name="TblRol" Relationship="Self.FK__TblCuenta__IdRol__44FF419A" FromRole="TblCuenta" ToRole="TblRol" />
+          <NavigationProperty Name="TblTickets" Relationship="Self.FK__TblTicket__IdAge__693CA210" FromRole="TblCuenta" ToRole="TblTickets" />
+          <NavigationProperty Name="TblTickets1" Relationship="Self.FK__TblTicket__IdCue__6A30C649" FromRole="TblCuenta" ToRole="TblTickets" />
+        </EntityType>
+        <EntityType Name="TblMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_padre_id" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" />
+          <Property Name="Accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Controlador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdModulo" Type="Int32" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblModulo" Relationship="Self.FK__TblMenu__IdModul__3C69FB99" FromRole="TblMenu" ToRole="TblModulos" />
+          <NavigationProperty Name="TblRolMenus" Relationship="Self.FK__TblRolMen__IdMen__4222D4EF" FromRole="TblMenu" ToRole="TblRolMenu" />
+          <NavigationProperty Name="TblMenu1" Relationship="Self.FK_TblMenu_TblMenu" FromRole="TblMenu" ToRole="TblMenu1" />
+          <NavigationProperty Name="TblMenu2" Relationship="Self.FK_TblMenu_TblMenu" FromRole="TblMenu1" ToRole="TblMenu" />
+        </EntityType>
+        <EntityType Name="TblModulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblAgentes" Relationship="Self.FK__TblAgente__IdMod__59063A47" FromRole="TblModulos" ToRole="TblAgentes" />
+          <NavigationProperty Name="TblCoordinadores" Relationship="Self.FK__TblCoordi__IdMod__5629CD9C" FromRole="TblModulos" ToRole="TblCoordinadores" />
+          <NavigationProperty Name="TblMenus" Relationship="Self.FK__TblMenu__IdModul__3C69FB99" FromRole="TblModulos" ToRole="TblMenu" />
+          <NavigationProperty Name="TblTickets" Relationship="Self.FK__TblTicket__IdMod__6B24EA82" FromRole="TblModulos" ToRole="TblTickets" />
+        </EntityType>
+        <EntityType Name="TblPermiso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Permiso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="TblRol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblCuentas" Relationship="Self.FK__TblCuenta__IdRol__44FF419A" FromRole="TblRol" ToRole="TblCuenta" />
+          <NavigationProperty Name="TblRolMenus" Relationship="Self.FK__TblRolMen__IdRol__412EB0B6" FromRole="TblRol" ToRole="TblRolMenu" />
+        </EntityType>
+        <EntityType Name="TblRolMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="IdMenu" Type="Int32" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblMenu" Relationship="Self.FK__TblRolMen__IdMen__4222D4EF" FromRole="TblRolMenu" ToRole="TblMenu" />
+          <NavigationProperty Name="TblRol" Relationship="Self.FK__TblRolMen__IdRol__412EB0B6" FromRole="TblRolMenu" ToRole="TblRol" />
+        </EntityType>
+        <EntityType Name="TblRolPermisoMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMenu" Type="Int32" />
+          <Property Name="IdRol" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdPermiso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="CreadoPor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="TblEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Porcentaje" Type="Int32" />
+          <NavigationProperty Name="TblTickets" Relationship="Self.FK__TblTicket__IdEst__6D0D32F4" FromRole="TblEstado" ToRole="TblTickets" />
+        </EntityType>
+        <EntityType Name="TblPrioridad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="TblTickets" Relationship="Self.FK__TblTicket__IdPri__6C190EBB" FromRole="TblPrioridad" ToRole="TblTickets" />
+        </EntityType>
+        <EntityType Name="TblTicketDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTicket" Type="Int32" />
+          <Property Name="documento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistro" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblTicket" Relationship="Self.FK__TblTicket__IdTic__70DDC3D8" FromRole="TblTicketDocumento" ToRole="TblTickets" />
+        </EntityType>
+        <EntityType Name="TblTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="FechaApertura" Type="DateTime" Precision="0" />
+          <Property Name="HoraApertura" Type="Time" Precision="7" />
+          <Property Name="FechaRevision" Type="DateTime" Precision="3" />
+          <Property Name="FechaProceso" Type="DateTime" Precision="3" />
+          <Property Name="FechaCierre" Type="DateTime" Precision="3" />
+          <Property Name="IdAgente" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdModulo" Type="Int32" />
+          <Property Name="IdPrioridad" Type="Int32" />
+          <Property Name="EsEmpleado" Type="Boolean" />
+          <Property Name="FechaRegistro" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCuenta" Relationship="Self.FK__TblTicket__IdAge__693CA210" FromRole="TblTickets" ToRole="TblCuenta" />
+          <NavigationProperty Name="TblCuenta1" Relationship="Self.FK__TblTicket__IdCue__6A30C649" FromRole="TblTickets" ToRole="TblCuenta" />
+          <NavigationProperty Name="TblModulo" Relationship="Self.FK__TblTicket__IdMod__6B24EA82" FromRole="TblTickets" ToRole="TblModulos" />
+          <NavigationProperty Name="TblEstado" Relationship="Self.FK__TblTicket__IdEst__6D0D32F4" FromRole="TblTickets" ToRole="TblEstado" />
+          <NavigationProperty Name="TblPrioridad" Relationship="Self.FK__TblTicket__IdPri__6C190EBB" FromRole="TblTickets" ToRole="TblPrioridad" />
+          <NavigationProperty Name="TblTicketDocumentoes" Relationship="Self.FK__TblTicket__IdTic__70DDC3D8" FromRole="TblTickets" ToRole="TblTicketDocumento" />
+        </EntityType>
+        <Association Name="FK__TblEmpres__IdCla__49C3F6B7">
+          <End Role="TblClasificacion" Type="Self.TblClasificacion" Multiplicity="0..1" />
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClasificacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblEmpresa">
+              <PropertyRef Name="IdClasificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCuenta__IdCue__4F7CD00D">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblCuentaSucursale" Type="Self.TblCuentaSucursale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuentaSucursale">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCuentaSucursale_TblSucursales">
+          <End Role="TblSucursales" Type="Self.TblSucursale" Multiplicity="0..1" />
+          <End Role="TblCuentaSucursale" Type="Self.TblCuentaSucursale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblSucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuentaSucursale">
+              <PropertyRef Name="IdSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblEmpres__IdCue__10566F31">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblEmpresa">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblSucurs__IdEmp__4CA06362">
+          <End Role="TblEmpresa" Type="Self.TblEmpresa" Multiplicity="0..1" />
+          <End Role="TblSucursales" Type="Self.TblSucursale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblSucursales">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblAgente__Coord__59FA5E80">
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadore" Multiplicity="0..1" />
+          <End Role="TblAgentes" Type="Self.TblAgente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCoordinadores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblAgentes">
+              <PropertyRef Name="CoordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblAgente__IdMod__59063A47">
+          <End Role="TblModulos" Type="Self.TblModulo" Multiplicity="0..1" />
+          <End Role="TblAgentes" Type="Self.TblAgente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblAgentes">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCoordi__IdMod__5629CD9C">
+          <End Role="TblModulos" Type="Self.TblModulo" Multiplicity="0..1" />
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCoordinadores">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCoordi__IdPer__5535A963">
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="0..1" />
+          <End Role="TblCoordinadores" Type="Self.TblCoordinadore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPersona">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCoordinadores">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblPerson__IdCue__52593CB8">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblPersona" Type="Self.TblPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblPersona">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblCuenta__IdRol__44FF419A">
+          <End Role="TblRol" Type="Self.TblRol" Multiplicity="0..1" />
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblCuenta">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdAge__693CA210">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdAgente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdCue__6A30C649">
+          <End Role="TblCuenta" Type="Self.TblCuenta" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblMenu__IdModul__3C69FB99">
+          <End Role="TblModulos" Type="Self.TblModulo" Multiplicity="0..1" />
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMenu">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblRolMen__IdMen__4222D4EF">
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="0..1" />
+          <End Role="TblRolMenu" Type="Self.TblRolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblRolMenu">
+              <PropertyRef Name="IdMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblMenu_TblMenu">
+          <End Role="TblMenu" Type="Self.TblMenu" Multiplicity="0..1" />
+          <End Role="TblMenu1" Type="Self.TblMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblMenu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblMenu1">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdMod__6B24EA82">
+          <End Role="TblModulos" Type="Self.TblModulo" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblModulos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblRolMen__IdRol__412EB0B6">
+          <End Role="TblRol" Type="Self.TblRol" Multiplicity="0..1" />
+          <End Role="TblRolMenu" Type="Self.TblRolMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblRol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblRolMenu">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdEst__6D0D32F4">
+          <End Role="TblEstado" Type="Self.TblEstado" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdPri__6C190EBB">
+          <End Role="TblPrioridad" Type="Self.TblPrioridad" Multiplicity="0..1" />
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblPrioridad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTickets">
+              <PropertyRef Name="IdPrioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TblTicket__IdTic__70DDC3D8">
+          <End Role="TblTickets" Type="Self.TblTicket" Multiplicity="0..1" />
+          <End Role="TblTicketDocumento" Type="Self.TblTicketDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblTickets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TblTicketDocumento">
+              <PropertyRef Name="IdTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DSJTICKETEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblClasificacions" EntityType="Self.TblClasificacion" />
+          <EntitySet Name="TblCuentaSucursales" EntityType="Self.TblCuentaSucursale" />
+          <EntitySet Name="TblEmpresas" EntityType="Self.TblEmpresa" />
+          <EntitySet Name="TblSucursales" EntityType="Self.TblSucursale" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TblAgentes" EntityType="Self.TblAgente" />
+          <EntitySet Name="TblCoordinadores" EntityType="Self.TblCoordinadore" />
+          <EntitySet Name="TblPersonas" EntityType="Self.TblPersona" />
+          <EntitySet Name="Invenarios" EntityType="Self.Invenario" />
+          <EntitySet Name="TblCuentas" EntityType="Self.TblCuenta" />
+          <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
+          <EntitySet Name="TblModulos" EntityType="Self.TblModulo" />
+          <EntitySet Name="TblPermisos" EntityType="Self.TblPermiso" />
+          <EntitySet Name="TblRols" EntityType="Self.TblRol" />
+          <EntitySet Name="TblRolMenus" EntityType="Self.TblRolMenu" />
+          <EntitySet Name="TblRolPermisoMenus" EntityType="Self.TblRolPermisoMenu" />
+          <EntitySet Name="TblEstadoes" EntityType="Self.TblEstado" />
+          <EntitySet Name="TblPrioridads" EntityType="Self.TblPrioridad" />
+          <EntitySet Name="TblTicketDocumentoes" EntityType="Self.TblTicketDocumento" />
+          <EntitySet Name="TblTickets" EntityType="Self.TblTicket" />
+          <AssociationSet Name="FK__TblEmpres__IdCla__49C3F6B7" Association="Self.FK__TblEmpres__IdCla__49C3F6B7">
+            <End Role="TblClasificacion" EntitySet="TblClasificacions" />
+            <End Role="TblEmpresa" EntitySet="TblEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCuenta__IdCue__4F7CD00D" Association="Self.FK__TblCuenta__IdCue__4F7CD00D">
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+            <End Role="TblCuentaSucursale" EntitySet="TblCuentaSucursales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCuentaSucursale_TblSucursales" Association="Self.FK_TblCuentaSucursale_TblSucursales">
+            <End Role="TblSucursales" EntitySet="TblSucursales" />
+            <End Role="TblCuentaSucursale" EntitySet="TblCuentaSucursales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblEmpres__IdCue__10566F31" Association="Self.FK__TblEmpres__IdCue__10566F31">
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+            <End Role="TblEmpresa" EntitySet="TblEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblSucurs__IdEmp__4CA06362" Association="Self.FK__TblSucurs__IdEmp__4CA06362">
+            <End Role="TblEmpresa" EntitySet="TblEmpresas" />
+            <End Role="TblSucursales" EntitySet="TblSucursales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblAgente__Coord__59FA5E80" Association="Self.FK__TblAgente__Coord__59FA5E80">
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+            <End Role="TblAgentes" EntitySet="TblAgentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblAgente__IdMod__59063A47" Association="Self.FK__TblAgente__IdMod__59063A47">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblAgentes" EntitySet="TblAgentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCoordi__IdMod__5629CD9C" Association="Self.FK__TblCoordi__IdMod__5629CD9C">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCoordi__IdPer__5535A963" Association="Self.FK__TblCoordi__IdPer__5535A963">
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+            <End Role="TblCoordinadores" EntitySet="TblCoordinadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblPerson__IdCue__52593CB8" Association="Self.FK__TblPerson__IdCue__52593CB8">
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+            <End Role="TblPersona" EntitySet="TblPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblCuenta__IdRol__44FF419A" Association="Self.FK__TblCuenta__IdRol__44FF419A">
+            <End Role="TblRol" EntitySet="TblRols" />
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdAge__693CA210" Association="Self.FK__TblTicket__IdAge__693CA210">
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdCue__6A30C649" Association="Self.FK__TblTicket__IdCue__6A30C649">
+            <End Role="TblCuenta" EntitySet="TblCuentas" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblMenu__IdModul__3C69FB99" Association="Self.FK__TblMenu__IdModul__3C69FB99">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblMenu" EntitySet="TblMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblRolMen__IdMen__4222D4EF" Association="Self.FK__TblRolMen__IdMen__4222D4EF">
+            <End Role="TblMenu" EntitySet="TblMenus" />
+            <End Role="TblRolMenu" EntitySet="TblRolMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMenu_TblMenu" Association="Self.FK_TblMenu_TblMenu">
+            <End Role="TblMenu" EntitySet="TblMenus" />
+            <End Role="TblMenu1" EntitySet="TblMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdMod__6B24EA82" Association="Self.FK__TblTicket__IdMod__6B24EA82">
+            <End Role="TblModulos" EntitySet="TblModulos" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblRolMen__IdRol__412EB0B6" Association="Self.FK__TblRolMen__IdRol__412EB0B6">
+            <End Role="TblRol" EntitySet="TblRols" />
+            <End Role="TblRolMenu" EntitySet="TblRolMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdEst__6D0D32F4" Association="Self.FK__TblTicket__IdEst__6D0D32F4">
+            <End Role="TblEstado" EntitySet="TblEstadoes" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdPri__6C190EBB" Association="Self.FK__TblTicket__IdPri__6C190EBB">
+            <End Role="TblPrioridad" EntitySet="TblPrioridads" />
+            <End Role="TblTickets" EntitySet="TblTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TblTicket__IdTic__70DDC3D8" Association="Self.FK__TblTicket__IdTic__70DDC3D8">
+            <End Role="TblTickets" EntitySet="TblTickets" />
+            <End Role="TblTicketDocumento" EntitySet="TblTicketDocumentoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DSJTICKETModelStoreContainer" CdmEntityContainer="DSJTICKETEntities">
+          <EntitySetMapping Name="TblClasificacions">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblClasificacion">
+              <MappingFragment StoreEntitySet="TblClasificacion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="TiempoInicio" ColumnName="TiempoInicio" />
+                <ScalarProperty Name="TiempoFin" ColumnName="TiempoFin" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCuentaSucursales">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblCuentaSucursale">
+              <MappingFragment StoreEntitySet="TblCuentaSucursale">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmpresas">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblEmpresa">
+              <MappingFragment StoreEntitySet="TblEmpresa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="IdClasificacion" ColumnName="IdClasificacion" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="ActualizadoPor" ColumnName="ActualizadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSucursales">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblSucursale">
+              <MappingFragment StoreEntitySet="TblSucursales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DSJTICKETModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAgentes">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblAgente">
+              <MappingFragment StoreEntitySet="TblAgentes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="CoordId" ColumnName="CoordId" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCoordinadores">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblCoordinadore">
+              <MappingFragment StoreEntitySet="TblCoordinadores">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPersonas">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblPersona">
+              <MappingFragment StoreEntitySet="TblPersona">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invenarios">
+            <EntityTypeMapping TypeName="DSJTICKETModel.Invenario">
+              <MappingFragment StoreEntitySet="Invenario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="ActualizadoPor" ColumnName="ActualizadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCuentas">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblCuenta">
+              <MappingFragment StoreEntitySet="TblCuenta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMenus">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblMenu">
+              <MappingFragment StoreEntitySet="TblMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Menu_padre_id" ColumnName="Menu_padre_id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblModulos">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblModulo">
+              <MappingFragment StoreEntitySet="TblModulos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPermisos">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblPermiso">
+              <MappingFragment StoreEntitySet="TblPermisos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Permiso" ColumnName="Permiso" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRols">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblRol">
+              <MappingFragment StoreEntitySet="TblRol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRolMenus">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblRolMenu">
+              <MappingFragment StoreEntitySet="TblRolMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblRolPermisoMenus">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblRolPermisoMenu">
+              <MappingFragment StoreEntitySet="TblRolPermisoMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdPermiso" ColumnName="IdPermiso" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEstadoes">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblEstado">
+              <MappingFragment StoreEntitySet="TblEstado">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblPrioridads">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblPrioridad">
+              <MappingFragment StoreEntitySet="TblPrioridad">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTicketDocumentoes">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblTicketDocumento">
+              <MappingFragment StoreEntitySet="TblTicketDocumento">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTicket" ColumnName="IdTicket" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTickets">
+            <EntityTypeMapping TypeName="DSJTICKETModel.TblTicket">
+              <MappingFragment StoreEntitySet="TblTickets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+                <ScalarProperty Name="HoraApertura" ColumnName="HoraApertura" />
+                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+                <ScalarProperty Name="FechaProceso" ColumnName="FechaProceso" />
+                <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+                <ScalarProperty Name="IdAgente" ColumnName="IdAgente" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
+                <ScalarProperty Name="EsEmpleado" ColumnName="EsEmpleado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

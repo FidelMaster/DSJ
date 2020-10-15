@@ -1,0 +1,12 @@
+ 
+#titulo{
+    background-image: linear-gradient(45deg, #d6040b 15%, #e01545  65%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+      font-size: 4.5rem;
+    font-family: 'Gilroy', 
+    sans-serif !important; 
+    font-weight:900 !important;
+    color:#e01545 !important;    
+    line-height: 1.2 !important;
+}
