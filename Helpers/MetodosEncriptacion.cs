@@ -33,6 +33,7 @@ namespace DSJ.Helpers
             }
         }
         #endregion
+
         #region GeneracionCifrado
 
         public byte[] ExtraerByte(string texto, byte[] Key, byte[] IV)
