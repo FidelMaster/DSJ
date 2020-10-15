@@ -130,6 +130,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AG\AGAreaRegistration.cs" />
     <Compile Include="Areas\CL\CLAreaRegistration.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Areas\CL\Controllers\RegistroController.cs" />
+>>>>>>> c012215f050d688dc0647db4c2942650ad8abc5b
     <Compile Include="Areas\CO\COAreaRegistration.cs" />
     <Compile Include="Areas\SEG\Controllers\EmpresasController.cs" />
     <Compile Include="Areas\SEG\SEGAreaRegistration.cs" />
@@ -1990,6 +1994,16 @@
     <Content Include="Areas\LOG\Views\Account\LoginAdministracion.cshtml" />
     <Content Include="Areas\CL\Views\_ViewStart.cshtml" />
     <Content Include="Areas\CL\Views\Shared\_Layout.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Areas\CL\Views\PerfilToner\Perfil.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Toner.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Delete.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Details.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Edit.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Create.cshtml" />
+    <Content Include="Areas\CL\Views\Registro\Index.cshtml" />
+>>>>>>> c012215f050d688dc0647db4c2942650ad8abc5b
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
