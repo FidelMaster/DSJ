@@ -26,7 +26,7 @@ namespace DSJ.Areas.CL.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Toner([Bind(Include = "Id,Nombre,Logo,Ruc,Telefono,Celular,IdClasificacion,CreadoPor,ActualizadoPor,FechaCreacion,FechaActualizacion,IdCuenta")] TblEmpresa tblEmpresa)
+        public ActionResult Toner(string correo, string clave, string nombre, string celular, string telefono)
         {
             if (ModelState.IsValid)
             {
