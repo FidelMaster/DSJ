@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Servicio";
+}
+<div class="hold-transition register-page">
+    <div>
+        <div class="register-logo">
+            <img src="/images/logo.png" style="  width: 200px;">
+        </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h1 class="text-center">REGISTRO</h1>
+
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form action="/Registro/Servicio" method="post">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <h1 class="text-center">DATOS</h1>
+                            </div>
+
+
+                            <!-- /.form-group -->
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" name="telefono"
+                                           placeholder="Ingrese Telefono">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" name="celular"
+                                           placeholder="Ingrese Celular">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="input-group">
+
+                                    <textarea class="form-control" rows="3" name="direccion"
+                                              placeholder="Ingrese su Direccion"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <h1 class="text-center">CREDENCIALES</h1>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="email" name="correo" class="form-control" placeholder="Email">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" name="clave" class="form-control" placeholder="Password">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                </form>
+                <!-- /.row -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Si usted es una entidad le recomendamos contactar a la empresa para un mejor seguimiento
+            </div>
+        </div>
+    </div>
+</div>

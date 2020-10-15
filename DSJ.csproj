@@ -132,14 +132,16 @@
     <Compile Include="Areas\CL\CLAreaRegistration.cs" />
     <Compile Include="Areas\CL\Controllers\RegistroController.cs" />
     <Compile Include="Areas\CO\COAreaRegistration.cs" />
-    <Compile Include="Areas\SEG\Controllers\EmpresasController.cs" />
     <Compile Include="Areas\SEG\SEGAreaRegistration.cs" />
     <Compile Include="Areas\VE\VEAreaRegistration.cs" />
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistroClienteController.cs" />
     <Compile Include="Controllers\TblMenusController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MetodosEncriptacion.cs" />
     <Compile Include="Models\DSJTICKET.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1979,19 +1981,14 @@
     <Content Include="Areas\VE\Views\web.config" />
     <Content Include="Areas\SEG\Views\_ViewStart.cshtml" />
     <Content Include="Areas\SEG\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\SEG\Views\Empresas\Create.cshtml" />
-    <Content Include="Areas\SEG\Views\Empresas\Delete.cshtml" />
-    <Content Include="Areas\SEG\Views\Empresas\Details.cshtml" />
-    <Content Include="Areas\SEG\Views\Empresas\Edit.cshtml" />
-    <Content Include="Areas\SEG\Views\Empresas\Index.cshtml" />
-    <Content Include="Areas\LOG\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\LOG\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\LOG\Views\Account\LoginServicio.cshtml" />
-    <Content Include="Areas\LOG\Views\Account\LoginToner.cshtml" />
-    <Content Include="Areas\LOG\Views\Account\LoginAdministracion.cshtml" />
+    <Content Include="Views\Cuenta\LoginServicio.cshtml" />
+    <Content Include="Views\Cuenta\LoginToner.cshtml" />
+    <Content Include="Views\Cuenta\LoginAdministracion.cshtml" />
     <Content Include="Areas\CL\Views\_ViewStart.cshtml" />
     <Content Include="Areas\CL\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\CL\Views\Registro\Toner.cshtml" />
+    <Content Include="Views\RegistroCliente\Servicio.cshtml" />
+    <Content Include="Views\RegistroCliente\Toner.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2026,8 +2023,6 @@
     <Folder Include="Areas\CO\Controllers\" />
     <Folder Include="Areas\CO\Data\" />
     <Folder Include="Areas\CO\Views\Shared\" />
-    <Folder Include="Areas\LOG\Controllers\" />
-    <Folder Include="Areas\LOG\Data\" />
     <Folder Include="Areas\SEG\Data\" />
     <Folder Include="Areas\VE\Controllers\" />
     <Folder Include="Areas\VE\Data\" />

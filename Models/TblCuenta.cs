@@ -27,6 +27,8 @@ namespace DSJ.Models
         public int Id { get; set; }
         public string Correo { get; set; }
         public byte[] Clave { get; set; }
+
+        public int idmodulo { get; set; }
         public Nullable<bool> activo { get; set; }
         public Nullable<int> IdRol { get; set; }
         public byte[] FechaCreacion { get; set; }
