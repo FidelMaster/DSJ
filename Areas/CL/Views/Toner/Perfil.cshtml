@@ -9,69 +9,67 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
+                    @foreach (var data in Model)
+                    {
+                        <!-- Profile Image -->
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="https://uifaces.co/our-content/donated/rSuiu_Hr.jpg"
+                                         alt="picture">
+                                </div>
+                                <h3 class="profile-username text-center">@data.Nombre</h3>
 
-                    <!-- Profile Image -->
-                    <div class="card card-primary card-outline">
-                        <div class="card-body box-profile">
-                            <div class="text-center">
-                                <img class="profile-user-img img-fluid img-circle"
-                                     src="https://uifaces.co/our-content/donated/rSuiu_Hr.jpg"
-                                     alt="picture">
+                                <p class="text-muted text-center">Particular</p>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>RUC:</b> <a class="float-right">@data.Ruc</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tickets Reportados</b> <a class="float-right">13</a>
+                                    </li>
+
+                                </ul>
+
                             </div>
-
-                            <h3 class="profile-username text-center">Mario Jose Gutierrez</h3>
-
-                            <p class="text-muted text-center">Particular</p>
-
-                            <ul class="list-group list-group-unbordered mb-3">
-                                <li class="list-group-item">
-                                    <b>RUC:</b> <a class="float-right">00569678721</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <b>Tickets Reportados</b> <a class="float-right">13</a>
-                                </li>
-
-                            </ul>
-
-
                         </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                    <!-- About Me Box -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Informacion General</h3>
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Informacion General</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicacion</strong>
+
+                                <p class="text-muted">Managua, Nicaragua</p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-pencil-alt mr-1"></i> Contacto</strong>
+
+                                <p class="text-muted">
+                                    <span class="tag tag-danger">@data.Telefono</span>
+
+                                    <span class="tag tag-success">@data.Celular</span>
+
+                                </p>
+
+
+
+                                <hr>
+
+                                <strong><i class="far fa-file-alt mr-1"></i> Direccion</strong>
+
+                                <p class="text-muted">Edificio #2 Invercasa, planta baja.</p>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
+                    }
 
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Ubicacion</strong>
-
-                            <p class="text-muted">Managua, Nicaragua</p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-pencil-alt mr-1"></i> Contacto</strong>
-
-                            <p class="text-muted">
-                                <span class="tag tag-danger">85817060</span>
-
-                                <span class="tag tag-success">22262424</span>
-
-                            </p>
-
-
-
-                            <hr>
-
-                            <strong><i class="far fa-file-alt mr-1"></i> Direccion</strong>
-
-                            <p class="text-muted">Edificio #2 Invercasa, planta baja.</p>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                 
                 </div>
                 <!-- /.col -->
                 <div class="col-md-9">
@@ -110,7 +108,7 @@
                                                     La Computadora me da fallo al encendido
                                                 </div>
                                                 <div class="timeline-footer">
-                                                    <a href="#" class="btn btn-primary btn-sm">Ver Detalle</a>
+                                                    <a href="../Tickets/DetalleTicket" class="btn btn-primary btn-sm">Ver Detalle</a>
 
                                                 </div>
                                             </div>

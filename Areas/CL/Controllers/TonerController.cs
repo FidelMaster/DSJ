@@ -17,15 +17,16 @@ namespace DSJ.Areas.CL.Controllers
         // GET: CL/Toner
         public ActionResult Perfil()
         {
-            var tblEmpresas = db.TblEmpresas.Include(t => t.TblClasificacion).Include(t => t.TblCuenta);
-            return View();
+           // int id = Int32.Parse(Session["IdEmpresa"].ToString());
+            var tblEmpresas = db.TblEmpresas.Where(s => s.Id.Equals(2)).ToList();
+            return View(tblEmpresas);
         }
 
         // GET: CL/Toner/Details/5
         public ActionResult Historial()
         {
             var tblEmpresas = db.TblEmpresas.Include(t => t.TblClasificacion).Include(t => t.TblCuenta);
-            return View(tblEmpresas.ToList());
+            return View();
         }
 
         // GET: CL/Toner/Create

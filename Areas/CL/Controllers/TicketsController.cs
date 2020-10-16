@@ -22,18 +22,9 @@ namespace DSJ.Areas.CL.Controllers
         }
 
         // GET: CL/Tickets/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult DetalleTicket()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TblTicket tblTicket = db.TblTickets.Find(id);
-            if (tblTicket == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblTicket);
+            return View();
         }
 
         // GET: CL/Tickets/Create
@@ -70,23 +61,9 @@ namespace DSJ.Areas.CL.Controllers
         }
 
         // GET: CL/Tickets/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Inventario()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TblTicket tblTicket = db.TblTickets.Find(id);
-            if (tblTicket == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdAgente = new SelectList(db.TblCuentas, "Id", "Correo", tblTicket.IdAgente);
-            ViewBag.IdCuenta = new SelectList(db.TblCuentas, "Id", "Correo", tblTicket.IdCuenta);
-            ViewBag.IdModulo = new SelectList(db.TblModulos, "Id", "Modulo", tblTicket.IdModulo);
-            ViewBag.IdEstado = new SelectList(db.TblEstadoes, "Id", "Nombre", tblTicket.IdEstado);
-            ViewBag.IdPrioridad = new SelectList(db.TblPrioridads, "Id", "Nombre", tblTicket.IdPrioridad);
-            return View(tblTicket);
+            return View();
         }
 
         // POST: CL/Tickets/Edit/5
